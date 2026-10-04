@@ -11,7 +11,7 @@ mod_gestures_install() {
   fi
   add_user_to_group input
   mod_gestures_link
-  # Starts it in GNOME too (sway starts it from config.d/custom/touchpad_gestures).
+  # Starts it in GNOME too (sway starts it from custom/touchpad_gestures).
   run libinput-gestures-setup autostart || true
 }
 

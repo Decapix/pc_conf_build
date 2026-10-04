@@ -120,5 +120,5 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
 ## gestures
 - **Fait** : libinput-tools, wmctrl, xdotool ; clone `bulletmark/libinput-gestures` et `make install` ;
   groupe `input` (obligatoire pour lire le touchpad) ; lie `~/.config/libinput-gestures.conf` ;
-  `libinput-gestures-setup autostart` (pour GNOME ; dans sway c'est `config.d/custom/touchpad_gestures`
+  `libinput-gestures-setup autostart` (pour GNOME ; dans sway c'est `custom/touchpad_gestures`
   qui le lance).

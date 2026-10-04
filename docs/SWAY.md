@@ -17,14 +17,14 @@ sway/
 │   ├── outputs         # eDP-1 / DP-1
 │   ├── inputs          # clavier us,fr ; touchpad
 │   ├── screenlock_powersave   # swayidle + swaylock
-│   ├── statusbar       # lance waybar + nm-applet
-│   └── custom/         # matériel : daskeyboard4, mxmaster3, sony_wh700, touchpad_gestures
+│   └── statusbar       # lance waybar + nm-applet
+├── custom/             # matériel : daskeyboard4, mxmaster3, sony_wh700, touchpad_gestures
 ├── scripts/            # control-center, battery_alert, rename_group, flatten_workspace, swap_workspaces, sway_bar (ancien)
 ├── images/             # wallpaper.jpg, lockscreen_background.png…
 └── simple.md           # aide-mémoire (see-sway-key)
 ```
 
-Ordre d'inclusion : `config.d/*` (alphabétique), puis `config.d/custom/*`, puis `/etc/sway/config.d/*`.
+Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sway/config.d/*`.
 
 ## Démarrage automatique
 
@@ -36,7 +36,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `config.d/custom/*`, puis
 | waybar (relancé à chaque reload) | `config.d/statusbar` |
 | nm-applet `--indicator` (Wi-Fi dans le tray) | `config.d/statusbar` |
 | swayidle : verrouille à 10 min, éteint l'écran à 15 min, verrouille avant la veille | `config.d/screenlock_powersave` |
-| libinput-gestures | `config.d/custom/touchpad_gestures` |
+| libinput-gestures | `custom/touchpad_gestures` |
 
 ## Raccourcis
 
@@ -141,3 +141,5 @@ Menu wofi (`scripts/control-center.sh`) :
 - `F8` lançait `theme-switcher`, qui n'existe pas (et capturait la touche F8 partout) → lance
   maintenant `~/.config/kitty/switch-theme.sh`.
 - Chemins `/home/solenopsis/...` remplacés par `~` / `$HOME`.
+- `config.d/custom/` déplacé en `custom/` : `include config.d/*` prenait aussi le dossier et sway
+  affichait l'erreur « custom is a directory not a config file » à chaque rechargement.

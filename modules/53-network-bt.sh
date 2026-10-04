@@ -5,6 +5,6 @@ mod_network_bt_install() {
   apt_install network-manager network-manager-gnome bluez bluez-tools blueman
   as_root systemctl enable --now bluetooth || true
   if [[ -x "$HOME/go/bin/bluetuith" ]]; then ok "bluetuith déjà installé"; else
-    run env GOBIN="$HOME/go/bin" go install github.com/bluetuith-org/bluetuith@latest
+    run env GOBIN="$HOME/go/bin" go install github.com/darkhz/bluetuith@latest
   fi
 }

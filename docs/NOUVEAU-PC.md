@@ -67,7 +67,7 @@ docker run hello-world         # vérifier docker (après reconnexion)
 Écrans : `swaymsg -t get_outputs` donne les noms. Si l'écran interne n'est pas `eDP-1` ou
 l'externe pas `DP-1`, corriger `dotfiles/sway/config.d/outputs`.
 
-Matériel : les fichiers `dotfiles/sway/config.d/custom/` (DasKeyboard 4, MX Master 3, casque Sony,
+Matériel : les fichiers `dotfiles/sway/custom/` (DasKeyboard 4, MX Master 3, casque Sony,
 gestes) sont inoffensifs si le matériel n'est pas branché.
 
 ## 5. Vérifier
