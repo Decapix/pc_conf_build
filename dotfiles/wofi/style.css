@@ -1,0 +1,29 @@
+window {
+    margin: 0px;
+    border: 2px solid #61afef;
+    background-color: #282c34;
+    border-radius: 8px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    color: #ffffff;
+}
+
+#entry {
+    padding: 5px 10px;
+}
+
+#entry:selected {
+    background-color: #61afef;
+    color: #1e222a;
+    border-radius: 4px;
+}
+
+#input {
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3e4451;
+    color: #ffffff;
+}
+

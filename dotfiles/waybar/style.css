@@ -1,0 +1,106 @@
+/* ============================================================
+   Waybar – dark/navy theme  accent: #0D1A63
+   ============================================================ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 10px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Bar itself ─────────────────────────────────────────── */
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.78);
+    color: #ffffff;
+}
+
+/* ── Generic module wrapper ─────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* Every module gets a small horizontal padding so icons breathe */
+#workspaces,
+#window,
+#keyboard-state,
+#custom-ping,
+#network,
+#memory,
+#battery,
+#custom-date,
+#clock {
+    padding: 0 8px;
+    color: #ffffff;
+}
+
+/* ── Separators: thin vertical rule between right modules ── */
+#keyboard-state,
+#custom-ping,
+#network,
+#memory,
+#battery,
+#custom-date {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ── Workspaces ─────────────────────────────────────────── */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: rgba(255, 255, 255, 0.45);
+    background: transparent;
+    border-radius: 0;
+    transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(13, 26, 99, 0.55);
+    color: #ffffff;
+}
+
+#workspaces button.focused {
+    background: rgba(13, 26, 99, 0.90);
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    background: rgba(200, 60, 60, 0.80);
+    color: #ffffff;
+}
+
+/* ── Center window title ────────────────────────────────── */
+#window {
+    color: rgba(255, 255, 255, 0.55);
+    font-style: italic;
+}
+
+/* ── Battery states ─────────────────────────────────────── */
+#battery.warning {
+    color: #f0c060;
+}
+
+#battery.critical {
+    color: #e05050;
+}
+
+#battery.charging {
+    color: #60d080;
+}
+
+/* ── Memory warning/critical ────────────────────────────── */
+#memory.warning {
+    color: #f0c060;
+}
+
+#memory.critical {
+    color: #e05050;
+}

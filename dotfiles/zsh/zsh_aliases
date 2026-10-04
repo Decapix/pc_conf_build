@@ -1,0 +1,23 @@
+
+
+
+
+alias gad='git add'
+alias gcm='git commit -m'
+alias gps='git push'
+alias gpl='git pull'
+alias gcl='git clone'
+alias gsw='git switch'
+alias py='python3'
+alias 'g++98'='g++ -std=c++98'
+alias arduino-ide='~/arduino-ide.AppImage'
+alias reboot-wifi='nmcli radio wifi off && nmcli radio wifi on'
+alias cl='clear'
+alias code="ELECTRON_OZONE_PLATFORM_HINT=wayland /usr/bin/code --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations"
+alias kl="kubectl" 
+
+alias see-sway-key="cat ~/.config/sway/simple.md"
+alias dc="dl"
+
+# Optionnel : Redéfinir la commande 'alias' pour éviter toute confusion
+#alias alias='echo "Les alias ont été remplacés par des fonctions. Utilisez directement les fonctions définies."'

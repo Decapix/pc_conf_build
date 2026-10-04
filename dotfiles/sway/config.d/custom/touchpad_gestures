@@ -1,0 +1,3 @@
+# Gestes touchpad (3/4 doigts) via ~/.config/libinput-gestures.conf
+# Sway ne lance pas ~/.config/autostart, donc on le démarre ici
+exec libinput-gestures
