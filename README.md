@@ -93,6 +93,7 @@ Ordre d'exécution = ordre du tableau. Les dépendances sont ajoutées automatiq
 | `network-bt` | ✔ | — | go | NetworkManager, nm-applet, bluez, blueman, bluetuith |
 | `audio-display` | ✔ | — | base | pipewire, wireplumber, pavucontrol, brightnessctl, wdisplays, captures |
 | `gestures` | ✔ | — | base | libinput-gestures (depuis GitHub), groupe `input`, **lien** de la config des gestes |
+| `claude-notify` | ✔ | — | sway | notification mako quand Claude Code a fini de répondre (ou attend une autorisation) : hooks `Stop` / `Notification` dans `~/.claude/settings.json` |
 | `lid` | ✔ | — | — | capot fermé **sur secteur** = pas de veille (les tâches continuent) ; sur batterie = veille |
 
 ✔ = coché par défaut · ☐ = proposé mais décoché · — = pas proposé dans ce mode.
@@ -146,7 +147,7 @@ pc_conf_build/
 │   ├── 20-go.sh  21-dl.sh  22-docker.sh
 │   ├── 30-node.sh  31-python.sh  32-rust.sh  33-java.sh
 │   ├── 40-k8s.sh  41-cloud.sh  42-tailscale.sh
-│   └── 50-sway.sh  51-swayfx.sh  52-default-session.sh  53-network-bt.sh  54-audio-display.sh  55-gestures.sh  56-lid.sh
+│   └── 50-sway.sh  51-swayfx.sh  52-default-session.sh  53-network-bt.sh  54-audio-display.sh  55-gestures.sh  56-lid.sh  57-claude-notify.sh
 ├── dotfiles/             # MES configs : la source de vérité (les fichiers de ~ pointent ici)
 │   ├── sway/             # → ~/.config/sway   (config, config.d/, scripts/, images/, swayfx.conf, simple.md)
 │   ├── waybar/           # → ~/.config/waybar

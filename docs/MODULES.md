@@ -133,3 +133,11 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   capot ouvert → écran rallumé.
 - But : fermer le capot sur secteur sans arrêter une compilation, un téléchargement, Claude Code…
 - **Défaire** : `sudo rm /etc/systemd/logind.conf.d/10-lid.conf && sudo systemctl kill -s HUP systemd-logind`.
+
+## claude-notify
+- **Fait** : lie `~/.local/bin/claude-notify` → `dotfiles/bin/claude-notify.sh` ; ajoute à
+  `~/.claude/settings.json` (sans remplacer les autres réglages ni les autres hooks, avec sauvegarde) :
+  - hook `Stop` → bulle « Claude a fini ✓ » + nom du dossier du projet
+  - hook `Notification` (type `permission_prompt`) → bulle **urgente** « Claude attend ta réponse »
+- Les hooks sont `async` : ils ne ralentissent jamais Claude.
+- **Défaire** : `/hooks` dans Claude Code, ou supprimer la clé `hooks` du fichier.
