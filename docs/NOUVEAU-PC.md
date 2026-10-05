@@ -75,7 +75,7 @@ gestes) sont inoffensifs si le matériel n'est pas branché.
 | Test | Attendu |
 |---|---|
 | `Super+C` | centre de contrôle (wofi) |
-| `Super+L` | écran verrouillé avec l'image de `sway/images/lockscreen_background.png` |
+| `Super+L` | écran verrouillé avec le fond d'écran Bing du jour (`~/Pictures/Wallpapers/actual.jpg`) |
 | Barre du haut | workspaces, ping, réseau, tray (icône Wi-Fi), mémoire, batterie, date, heure |
 | `Super+S` | capture dans `~/Pictures` |
 | `Super+F2/F3` | volume − / + |

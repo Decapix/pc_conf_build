@@ -1,8 +1,9 @@
 # SwayWM idle/lock configuration. For detailed information type "man sway-idle"
 # Author: Oscar Carballal Prego <oscar.carballal@protonmail.com>
 
-# Lock screen image (was never defined before: swaylock had no image)
-set $lockscreenbg ~/.config/sway/images/lockscreen_background.png
+# Lock screen image = the current Bing wallpaper (changed daily with $mod+Alt+Up).
+# -c is the fallback color if the image is missing (e.g. a brand-new PC).
+set $lockscreenbg ~/Pictures/Wallpapers/actual.jpg -s fill -c 0d1640
 
 exec swayidle -w \
     timeout 600 'swaylock -f -i $lockscreenbg' \

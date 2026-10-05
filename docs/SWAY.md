@@ -134,8 +134,9 @@ Menu wofi (`scripts/control-center.sh`) :
 
 ## Corrections faites lors de la migration vers ce repo
 
-- `$lockscreenbg` n'était défini nulle part → swaylock n'avait pas d'image. Défini dans
-  `config.d/screenlock_powersave`.
+- `$lockscreenbg` n'était défini nulle part → swaylock n'avait pas d'image. Il vaut maintenant le
+  **fond d'écran Bing du jour** (`~/Pictures/Wallpapers/actual.jpg`, couleur `#0d1640` si absent),
+  dans `config.d/screenlock_powersave`.
 - swaylock, swayidle, mako, playerctl n'étaient pas installés → verrouillage, veille auto,
   notifications et touches média ne marchaient pas. Le module `sway` les installe.
 - `F8` lançait `theme-switcher`, qui n'existe pas (et capturait la touche F8 partout) → lance

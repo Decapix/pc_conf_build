@@ -24,7 +24,7 @@
 | `libscenefx-0.4.so: cannot open shared object` | lancer via `swayfx-launch` (il règle `LD_LIBRARY_PATH`), ou `sudo ldconfig` |
 | La compilation échoue (dépendance manquante) | le journal donne le `meson` qui échoue et le paquet `.pc` manquant : `apt-file search <nom>.pc` puis l'ajouter à `swayfx_build` dans `modules/51-swayfx.sh` |
 | Nouvelle version de SwayFX | `SWAYFX_VER=… SCENEFX_VER=… WLROOTS_VER=… FORCE_SWAYFX=1 ./install.sh full --only swayfx` (versions compatibles : notes de version SwayFX) |
-| Pas d'image au verrouillage | vérifier `~/.config/sway/images/lockscreen_background.png` |
+| Verrouillage tout bleu, sans image | `~/Pictures/Wallpapers/actual.jpg` manque : `Super+Alt+↑` pour télécharger le fond du jour |
 | Pas d'icônes dans la barre (carrés) | police Nerd Font absente : `fc-list \| grep -i 'JetBrainsMono Nerd'`, sinon relancer `--only sway` |
 | Wi-Fi absent du tray | `pgrep nm-applet` ; `nm-applet --indicator &` |
 | Gestes touchpad sans effet | `groups` doit contenir `input` (se reconnecter) ; `libinput-gestures -d` pour déboguer |
