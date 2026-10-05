@@ -93,6 +93,7 @@ Ordre d'exécution = ordre du tableau. Les dépendances sont ajoutées automatiq
 | `network-bt` | ✔ | — | go | NetworkManager, nm-applet, bluez, blueman, bluetuith |
 | `audio-display` | ✔ | — | base | pipewire, wireplumber, pavucontrol, brightnessctl, wdisplays, captures |
 | `gestures` | ✔ | — | base | libinput-gestures (depuis GitHub), groupe `input`, **lien** de la config des gestes |
+| `lid` | ✔ | — | — | capot fermé **sur secteur** = pas de veille (les tâches continuent) ; sur batterie = veille |
 
 ✔ = coché par défaut · ☐ = proposé mais décoché · — = pas proposé dans ce mode.
 
@@ -145,7 +146,7 @@ pc_conf_build/
 │   ├── 20-go.sh  21-dl.sh  22-docker.sh
 │   ├── 30-node.sh  31-python.sh  32-rust.sh  33-java.sh
 │   ├── 40-k8s.sh  41-cloud.sh  42-tailscale.sh
-│   └── 50-sway.sh  51-swayfx.sh  52-default-session.sh  53-network-bt.sh  54-audio-display.sh  55-gestures.sh
+│   └── 50-sway.sh  51-swayfx.sh  52-default-session.sh  53-network-bt.sh  54-audio-display.sh  55-gestures.sh  56-lid.sh
 ├── dotfiles/             # MES configs : la source de vérité (les fichiers de ~ pointent ici)
 │   ├── sway/             # → ~/.config/sway   (config, config.d/, scripts/, images/, swayfx.conf, simple.md)
 │   ├── waybar/           # → ~/.config/waybar
@@ -177,6 +178,7 @@ pc_conf_build/
 | binaire SwayFX | `/usr/local/lib/swayfx` (pas dans `/usr/local/bin`, pour ne pas masquer le `sway` de Debian) |
 | lanceur SwayFX | `/usr/local/bin/swayfx-launch` + `/usr/share/wayland-sessions/swayfx.desktop` |
 | session par défaut | `/var/lib/AccountsService/users/$USER` (`Session=swayfx`) |
+| comportement du capot | `/etc/systemd/logind.conf.d/10-lid.conf` |
 | helm, minikube, scw, lazygit | `/usr/local/bin/` |
 | dl, bluetuith | `~/go/bin/` |
 | bun | `~/.bun/` |

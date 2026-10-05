@@ -37,6 +37,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | nm-applet `--indicator` (Wi-Fi dans le tray) | `config.d/statusbar` |
 | swayidle : verrouille à 10 min, éteint l'écran à 15 min, verrouille avant la veille | `config.d/screenlock_powersave` |
 | libinput-gestures | `custom/touchpad_gestures` |
+| capot fermé → écran interne éteint + verrouillage ; ouvert → rallumé | `config.d/screenlock_powersave` |
 
 ## Raccourcis
 
@@ -99,6 +100,16 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | MX Master 3 | boutons latéraux = workspace précédent / suivant sur l'écran |
 | Casque Sony WH700 | play / pause |
 | Touchpad | 3 doigts ←/→ : fenêtre ; 4 doigts ←/→ : workspace (`~/.config/libinput-gestures.conf`) |
+
+## Verrouillage, veille et tâches en cours
+
+| Action | Les programmes continuent ? |
+|---|---|
+| `Super+L` | ✅ oui (swaylock ne fait que recouvrir l'écran) |
+| 10 min d'inactivité (verrouillage) / 15 min (écran éteint) | ✅ oui |
+| Capot fermé **sur secteur** (module `lid`) | ✅ oui : écran éteint + verrouillé |
+| Capot fermé **sur batterie** | ❌ veille : tout est figé |
+| Énergie → Mettre en veille, alias `suspend` | ❌ veille |
 
 ## Centre de contrôle (`Super+c`)
 

@@ -13,3 +13,8 @@ exec swayidle -w \
 
 # Lock the screen
 bindsym $mod+l exec "swaylock -f -i $lockscreenbg"
+
+# Lid: lock and switch off the internal screen when closed, back on when opened.
+# On AC power logind ignores the lid (module "lid"), so running jobs keep going.
+bindswitch --reload --locked lid:on output $display_laptop power off, exec swaylock -f -i $lockscreenbg
+bindswitch --reload --locked lid:off output $display_laptop power on

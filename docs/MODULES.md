@@ -122,3 +122,13 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   groupe `input` (obligatoire pour lire le touchpad) ; lie `~/.config/libinput-gestures.conf` ;
   `libinput-gestures-setup autostart` (pour GNOME ; dans sway c'est `custom/touchpad_gestures`
   qui le lance).
+
+## lid
+- **Fait** : écrit `/etc/systemd/logind.conf.d/10-lid.conf` :
+  `HandleLidSwitch=suspend` (batterie : veille), `HandleLidSwitchExternalPower=ignore` (secteur :
+  rien), `HandleLidSwitchDocked=ignore` ; puis `systemctl kill -s HUP systemd-logind` (relit la config
+  sans fermer la session).
+- Côté sway (`config.d/screenlock_powersave`) : capot fermé → écran interne éteint + swaylock ;
+  capot ouvert → écran rallumé.
+- But : fermer le capot sur secteur sans arrêter une compilation, un téléchargement, Claude Code…
+- **Défaire** : `sudo rm /etc/systemd/logind.conf.d/10-lid.conf && sudo systemctl kill -s HUP systemd-logind`.
