@@ -29,5 +29,5 @@ bindsym $mod+Shift+S exec grimshot save area ~/Pictures/$(date '+%Y-%m-%d-%T')-s
 
 
 
-# Basculeur de thème clair/sombre
-bindsym F8 exec ~/.config/kitty/switch-theme.sh
+# Thème clair/sombre de tout le PC (Firefox, kitty, Zed, Zim, apps GTK)
+bindsym F8 exec ~/.local/bin/theme-switch toggle

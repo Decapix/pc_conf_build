@@ -62,5 +62,7 @@ nom d'utilisateur sur toute autre machine ; `USER` est déjà défini par le sys
 
 - JetBrainsMono Nerd Font 11.5, opacité 0.95, pas de bip, pas de confirmation à la fermeture
 - `shell tmux` : chaque fenêtre kitty ouvre tmux
-- thèmes : `mocha.conf` (sombre), `light.conf` (clair) ; `theme.conf` est un lien vers l'un des deux
-- `switch-theme.sh` (ou `F8` dans sway, ou Centre de contrôle → Custom) bascule et recharge à chaud
+- thèmes : `mocha.conf` (Catppuccin sombre), `light.conf` (Catppuccin Latte)
+- kitty suit **tout seul** le thème du système grâce à `dark-theme.auto.conf` / `light-theme.auto.conf`
+  (toutes les fenêtres ouvertes changent, pas besoin de les fermer) : `F8` ou `theme-switch`
+- `theme.conf` (inclus par kitty.conf) n'est plus qu'un repli ; `switch-theme.sh` appelle `theme-switch`

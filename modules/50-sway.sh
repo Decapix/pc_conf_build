@@ -7,6 +7,8 @@ mod_sway_install() {
     xdg-desktop-portal-wlr xdg-desktop-portal-gtk kitty fontconfig xz-utils
   install_nerd_font
   mod_sway_link
+  # Start in dark mode (needs a D-Bus session: fine from GNOME, skipped otherwise).
+  run "$HOME/.local/bin/theme-switch" dark || warn "thème : lance « theme-switch dark » une fois connecté"
 }
 
 mod_sway_link() {
@@ -15,6 +17,7 @@ mod_sway_link() {
   link wofi   "$HOME/.config/wofi"
   link kitty  "$HOME/.config/kitty"
   link bin/change_wallpaper.sh "$HOME/.local/bin/change_wallpaper.sh"
+  link bin/theme-switch.sh     "$HOME/.local/bin/theme-switch"
   # theme.conf is local state (switched by F8 / switch-theme.sh), not tracked in git.
   if [[ ! -e "$DOT/kitty/theme.conf" ]]; then
     run ln -s "$HOME/.config/kitty/mocha.conf" "$DOT/kitty/theme.conf"

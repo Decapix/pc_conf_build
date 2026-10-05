@@ -90,7 +90,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | `Super+s` | capture écran entier → `~/Pictures/DATE-screenshot.png` |
 | `Super+Shift+s` | capture d'une zone |
 | `Super+F7` / `Super+F8` | éteindre / rallumer l'écran du portable (eDP-1) |
-| `F8` | thème kitty clair ↔ sombre |
+| `F8` | **tout le PC** clair ↔ sombre (Firefox, kitty, Zed, Zim, apps GTK) — voir plus bas |
 | `Alt+Shift` | changer de disposition clavier us ↔ fr |
 
 ### Matériel
@@ -110,6 +110,33 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | Capot fermé **sur secteur** (module `lid`) | ✅ oui : écran éteint + verrouillé |
 | Capot fermé **sur batterie** | ❌ veille : tout est figé |
 | Énergie → Mettre en veille, alias `suspend` | ❌ veille |
+
+## Thème clair / sombre
+
+`F8`, Centre de contrôle → Custom → « Thème clair / sombre », ou en terminal :
+
+```sh
+theme-switch            # bascule
+theme-switch dark       # ou light
+theme-switch status     # affiche dark / light
+```
+
+Le script (`dotfiles/bin/theme-switch.sh` → `~/.local/bin/theme-switch`) change **le même réglage que
+GNOME** ; `xdg-desktop-portal-gtk` le diffuse et chaque appli suit **en direct, sans redémarrer** :
+
+| Réglage | Suivi par |
+|---|---|
+| `org.gnome.desktop.interface color-scheme` = `prefer-dark` / `prefer-light` | Firefox (sites + interface), Zed, kitty, apps GTK4/libadwaita |
+| `org.gnome.desktop.interface gtk-theme` = `Adwaita-dark` / `Adwaita` | apps GTK3 : Zim, pavucontrol, nm-connection-editor, blueman… |
+
+Réglages nécessaires dans les applis (une seule fois) :
+- **kitty** : `dark-theme.auto.conf` → `mocha.conf`, `light-theme.auto.conf` → `light.conf` (dans le repo).
+- **Zed** : `"theme": { "mode": "system", "light": "Ayu Light", "dark": "Gruvbox Dark Soft" }` dans
+  `~/.config/zed/settings.json` (fichier hors repo : à refaire sur un nouveau PC).
+- **Zim** : Préférences → Interface → décocher « Utiliser un thème sombre » (sinon il reste sombre).
+- **Firefox** : rien (Paramètres → Apparence des sites web → *Automatique*, c'est le défaut).
+
+Le réglage est partagé avec la session GNOME des invités (même dconf).
 
 ## Centre de contrôle (`Super+c`)
 

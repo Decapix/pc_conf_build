@@ -81,7 +81,8 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   grim, slurp, grimshot, jq, upower, portails xdg (wlr + gtk : partage d'écran), kitty, fontconfig.
   Police **JetBrainsMono Nerd Font** (dernière release nerd-fonts) dans `~/.local/share/fonts`.
 - **Liens** : `~/.config/sway`, `~/.config/waybar`, `~/.config/wofi`, `~/.config/kitty` (dossiers
-  entiers), `~/.local/bin/change_wallpaper.sh`.
+  entiers), `~/.local/bin/change_wallpaper.sh`, `~/.local/bin/theme-switch`.
+- Passe le PC en thème sombre (`theme-switch dark`).
 - Crée `dotfiles/kitty/theme.conf` → `mocha.conf` (thème sombre ; ignoré par git car F8 le change),
   et `~/Pictures/Wallpapers/actual.jpg` (copie de `sway/images/wallpaper.jpg`) s'il n'existe pas.
 
