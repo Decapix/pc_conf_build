@@ -139,5 +139,8 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   `~/.claude/settings.json` (sans remplacer les autres réglages ni les autres hooks, avec sauvegarde) :
   - hook `Stop` → bulle « Claude a fini ✓ » + nom du dossier du projet
   - hook `Notification` (type `permission_prompt`) → bulle **urgente** « Claude attend ta réponse »
+- **Pas de notification si la discussion est déjà à l'écran** : la fenêtre active de sway est le kitty
+  dont le client tmux affiche le panneau de cette session Claude (`$TMUX_PANE`). Sans tmux : la fenêtre
+  active est un processus parent de Claude. Écran verrouillé → toujours notifier.
 - Les hooks sont `async` : ils ne ralentissent jamais Claude.
 - **Défaire** : `/hooks` dans Claude Code, ou supprimer la clé `hooks` du fichier.
