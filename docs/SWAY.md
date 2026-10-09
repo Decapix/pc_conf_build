@@ -97,7 +97,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | Périphérique | Touches |
 |---|---|
 | DasKeyboard 4 | touches média (suivant, play/pause, précédent), muet, volume ±2 % |
-| MX Master 3 | boutons latéraux = workspace précédent / suivant sur l'écran |
+| Souris (MX Master 3, BT5.2…) | boutons latéraux : arrière = défilement plus lent, avant = plus rapide (×0.25 → ×15, `scroll-speed.sh`, vitesse gardée après redémarrage) |
 | Casque Sony WH700 | play / pause |
 | Touchpad | 3 doigts ←/→ : fenêtre ; 4 doigts ←/→ : workspace (`~/.config/libinput-gestures.conf`) |
 

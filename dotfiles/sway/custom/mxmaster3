@@ -1,6 +1,9 @@
 # SwayWM input configuration for the Logitech MX Master 3.
 # Author: Oscar Carballal Prego <oscar.carballal@protonmail.com>
 
+# Side buttons: back = slower scrolling, forward = faster (scroll-speed.sh).
 # Remember, --whole-window is required to work
-bindcode --whole-window 275 workspace prev_on_output
-bindcode --whole-window 276 workspace next_on_output
+bindcode --whole-window 275 exec ~/.config/sway/scripts/scroll-speed.sh down
+bindcode --whole-window 276 exec ~/.config/sway/scripts/scroll-speed.sh up
+# Reapply the last chosen speed on startup.
+exec_always ~/.config/sway/scripts/scroll-speed.sh restore
