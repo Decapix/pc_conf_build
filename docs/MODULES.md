@@ -29,7 +29,9 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   git-credential` comme gestionnaire d'identifiants pour github.com.
 
 ## cli-extra
-- **Fait** : lazygit, dernière release GitHub → `/usr/local/bin/lazygit`.
+- **Fait** : lazygit, dernière release GitHub → `/usr/local/bin/lazygit` ;
+  `translate-shell` (Debian) → commande `trans` (ex. `trans :en "tu as bien compris ?"`) ;
+  `ffmpeg` (Debian) → utilisé par la fonction `mic` (micro → MP3 dans le dossier courant).
 - Avant, lazygit et k9s venaient du dépôt `deb.griffo.io` ; ce dépôt répond maintenant
   *401 Unauthorized* au téléchargement des paquets : on ne l'utilise plus.
 

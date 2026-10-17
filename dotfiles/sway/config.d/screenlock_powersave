@@ -11,8 +11,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -i $lockscreenbg'
 
-# Lock the screen
-bindsym $mod+l exec "swaylock -f -i $lockscreenbg"
+# Lock the screen: no keybinding (Super+L freed), type `block` in a terminal (zshrc alias).
 
 # Lid: lock and switch off the internal screen when closed, back on when opened.
 # On AC power logind ignores the lid (module "lid"), so running jobs keep going.

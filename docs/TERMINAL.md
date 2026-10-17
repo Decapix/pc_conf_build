@@ -27,6 +27,9 @@ Presse-papier : `wl-copy` sous Wayland, sinon `xclip`.
 | `reboot-wifi` | coupe et rallume le Wi-Fi (nmcli) |
 | `see-sway-key` | affiche l'aide-mémoire sway |
 | `suspend` | mise en veille |
+| `block` | verrouille l'écran (swaylock, fond Bing du jour) — remplace `Super+L` |
+| `mic [nom]` | enregistre le micro en MP3 dans le dossier courant (`q` pour arrêter) ; sans nom → `enregistrement-AAAAMMJJ-HHMMSS.mp3` |
+| `trans` | traduction (translate-shell), ex. `trans :en "bonjour"` |
 | `g++98` | g++ -std=c++98 |
 | + tous les alias git d'oh-my-zsh (`gst`, `gco`, `glog`…) | `als` pour les lister (plugin aliases) |
 

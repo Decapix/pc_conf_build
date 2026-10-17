@@ -30,7 +30,7 @@ ou le code à 8 caractères à valider depuis le navigateur du PC (pas de naviga
 | `zsh` | zsh par défaut + oh-my-zsh + tout mon `.zshrc` : `pwdc`, `cdc`, `readlinkfc`, `cpr`, `ran`, alias git (`gad`, `gcm`, `gps`…), Ctrl+Suppr / Ctrl+Retour arrière |
 | `tmux` | ma conf tmux |
 | `git-gh` | `gh` + mon `.gitconfig` (nom/email, gh comme gestionnaire d'identifiants) |
-| `cli-extra` | lazygit |
+| `cli-extra` | lazygit, translate-shell, ffmpeg (`mic`) |
 | `go` + `dl` | mon outil `dl` |
 | `docker` | Docker CE + compose ; je suis dans le groupe `docker` |
 

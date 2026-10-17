@@ -50,7 +50,6 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | `Super+x` | lanceur (wofi) |
 | `Super+q` | fermer la fenêtre |
 | `Super+c` | **centre de contrôle** |
-| `Super+l` | verrouiller |
 | `Super+f` | plein écran |
 | `Super+Shift+c` | recharger la config |
 | `Super+Shift+e` | quitter sway (confirmation) |
@@ -105,7 +104,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 
 | Action | Les programmes continuent ? |
 |---|---|
-| `Super+L` | ✅ oui (swaylock ne fait que recouvrir l'écran) |
+| commande `block` (terminal) | ✅ oui (swaylock ne fait que recouvrir l'écran) — `Super+L` ne fait plus rien |
 | 10 min d'inactivité (verrouillage) / 15 min (écran éteint) | ✅ oui |
 | Capot fermé **sur secteur** (module `lid`) | ✅ oui : écran éteint + verrouillé |
 | Capot fermé **sur batterie** | ❌ veille : tout est figé |

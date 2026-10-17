@@ -76,7 +76,7 @@ Ordre d'exécution = ordre du tableau. Les dépendances sont ajoutées automatiq
 | `zsh` | ✔ | ✔ | base | zsh, oh-my-zsh (thème `lukerandall`), **liens** `~/.zshrc` et `~/.zsh_aliases`, zsh comme shell par défaut, crée `~/.secrets.zsh` |
 | `tmux` | ✔ | ✔ | base | tmux + **lien** `~/.tmux.conf` (souris, mode vi, copie → presse-papier Wayland) |
 | `git-gh` | ✔ | ✔ | base | dépôt officiel GitHub CLI, `gh`, **lien** `~/.gitconfig` (gh comme gestionnaire d'identifiants), puis `gh auth login` |
-| `cli-extra` | ✔ | ✔ | base | lazygit (dernière release GitHub) |
+| `cli-extra` | ✔ | ✔ | base | lazygit (dernière release GitHub), translate-shell (`trans`), ffmpeg (`mic` : micro → MP3) |
 | `go` | ✔ | ✔ | base | golang (Debian), crée `~/go/bin` |
 | `dl` | ✔ | ✔ | go, zsh | `go install github.com/Decapix/dl-organisation/cmd/dl@latest` |
 | `docker` | ✔ | ✔ | base | Docker CE (dépôt officiel) + buildx + compose, ajout au groupe `docker` |
