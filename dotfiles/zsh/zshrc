@@ -111,6 +111,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:/home/solenopsis/.cargo/bin
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 
 export CHROME_EXECUTABLE=/usr/bin/firefox

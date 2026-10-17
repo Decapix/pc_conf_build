@@ -22,6 +22,9 @@ alias dc="dl"
 # Optionnel : Redéfinir la commande 'alias' pour éviter toute confusion
 #alias alias='echo "Les alias ont été remplacés par des fonctions. Utilisez directement les fonctions définies."'
 
+# Transcription audio -> .txt (faster-whisper local, voir ~/.local/share/transcribe)
+alias transcribe="~/.local/share/transcribe/venv/bin/python ~/.local/share/transcribe/transcribe.py"
+
 # Enregistre le micro en MP3 dans le dossier courant (q ou Ctrl+C pour arrêter)
 # mic → enregistrement-AAAAMMJJ-HHMMSS.mp3 ; mic nom → nom.mp3
 mic() {
