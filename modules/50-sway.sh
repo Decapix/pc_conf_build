@@ -17,6 +17,7 @@ mod_sway_link() {
   link mako   "$HOME/.config/mako"
   link wofi   "$HOME/.config/wofi"
   link kitty  "$HOME/.config/kitty"
+  link wireplumber "$HOME/.config/wireplumber"   # règle du mode silencieux
   link bin/change_wallpaper.sh "$HOME/.local/bin/change_wallpaper.sh"
   link bin/theme-switch.sh     "$HOME/.local/bin/theme-switch"
   link bin/bt-audio-reset.sh   "$HOME/.local/bin/bt-audio-reset"

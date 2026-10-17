@@ -91,7 +91,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | `Super+Shift+s` | capture d'une zone |
 | `Super+F7` / `Super+F8` | éteindre / rallumer l'écran du portable (eDP-1) |
 | `F8` | **tout le PC** clair ↔ sombre (Firefox, kitty, Zed, Zim, apps GTK) — voir plus bas |
-| `F11` | mode silencieux : plus aucune notification, « 󰂛 silencieux » dans la barre (clic dessus = désactiver) |
+| `F11` | mode silencieux : plus aucune notification ni son des onglets WhatsApp (le reste de l'audio continue), « 󰂛 silencieux » dans la barre (clic dessus = désactiver) |
 | `Alt+Shift` | changer de disposition clavier us ↔ fr |
 
 ### Matériel

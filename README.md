@@ -87,7 +87,7 @@ Ordre d'exécution = ordre du tableau. Les dépendances sont ajoutées automatiq
 | `k8s` | ✔ | ☐ | base | kubectl (Debian), k9s (.deb GitHub), helm (script officiel), minikube |
 | `cloud` | ✔ | ☐ | base | OpenTofu (`tofu`, dépôt officiel), Scaleway CLI (`scw`) |
 | `tailscale` | ✔ | ☐ | base | Tailscale (dépôt officiel) — ensuite `sudo tailscale up` |
-| `sway` | ✔ | — | base | sway, swaybg, **swaylock, swayidle, mako, playerctl**, waybar, wofi, grim/slurp/grimshot, portails, kitty, police JetBrainsMono Nerd Font, **liens** sway/waybar/wofi/kitty + `change_wallpaper.sh` |
+| `sway` | ✔ | — | base | sway, swaybg, **swaylock, swayidle, mako, playerctl**, waybar, wofi, grim/slurp/grimshot, portails, kitty, police JetBrainsMono Nerd Font, **liens** sway/waybar/wofi/kitty/wireplumber + `change_wallpaper.sh` |
 | `swayfx` | ✔ | — | sway | compile wlroots 0.19.0 → scenefx 0.4.1 → SwayFX 0.5.2 dans `/usr/local`, crée `swayfx-launch` et la session « SwayFX » |
 | `default-session` | ✔ | — | sway | SwayFX (ou Sway si pas compilé) = session présélectionnée dans GDM |
 | `network-bt` | ✔ | — | go | NetworkManager, nm-applet, bluez, blueman, bluetuith |
