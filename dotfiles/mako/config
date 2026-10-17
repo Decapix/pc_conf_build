@@ -1,0 +1,9 @@
+# mako — notifications sway
+# Toute notification disparaît après 2 s, même si l'application demande plus
+# (ignore-timeout=1 force default-timeout pour tout le monde).
+default-timeout=2000
+ignore-timeout=1
+
+# Mode silencieux (F11, silent-mode.sh) : aucune notification affichée.
+[mode=silent]
+invisible=1

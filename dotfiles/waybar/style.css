@@ -45,8 +45,16 @@ window#waybar {
 #network,
 #memory,
 #battery,
-#custom-date {
+#custom-date,
+#custom-silent.on {
     border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Mode silencieux : visible seulement quand il est actif */
+#custom-silent.on {
+    padding: 0 8px;
+    color: #ffffff;
+    background: #8b1e3f;
 }
 
 /* ── Workspaces ─────────────────────────────────────────── */

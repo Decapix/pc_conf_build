@@ -13,7 +13,7 @@ sway/
 │   ├── workspaces      # focus/déplacement, workspaces 1-10, resize, layouts
 │   ├── groups          # nommer / aplatir les groupes de fenêtres
 │   ├── scratchpad
-│   ├── multimedia      # volume, luminosité, captures, F8 thème kitty
+│   ├── multimedia      # volume, luminosité, captures, F8 thème kitty, F11 mode silencieux
 │   ├── outputs         # eDP-1 / DP-1
 │   ├── inputs          # clavier us,fr ; touchpad
 │   ├── screenlock_powersave   # swayidle + swaylock
@@ -85,11 +85,13 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | Touches | Action |
 |---|---|
 | `Super+F1` / `F2` / `F3` | muet / volume −5 % / +5 % |
+| `Super+F4` | écouteurs Bluetooth muets alors que tout semble normal → réinitialise la connexion audio (`bt-audio-reset`), joue une cloche |
 | touches luminosité | ±5 % (même écran verrouillé) |
 | `Super+s` | capture écran entier → `~/Pictures/DATE-screenshot.png` |
 | `Super+Shift+s` | capture d'une zone |
 | `Super+F7` / `Super+F8` | éteindre / rallumer l'écran du portable (eDP-1) |
 | `F8` | **tout le PC** clair ↔ sombre (Firefox, kitty, Zed, Zim, apps GTK) — voir plus bas |
+| `F11` | mode silencieux : plus aucune notification, « 󰂛 silencieux » dans la barre (clic dessus = désactiver) |
 | `Alt+Shift` | changer de disposition clavier us ↔ fr |
 
 ### Matériel

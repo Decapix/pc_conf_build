@@ -10,6 +10,8 @@
 bindsym $mod+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+# Son Bluetooth bloqué (écouteurs muets alors que tout semble normal) : réinitialise la connexion
+bindsym $mod+F4 exec ~/.local/bin/bt-audio-reset
 
 
 # Media
@@ -31,3 +33,6 @@ bindsym $mod+Shift+S exec grimshot save area ~/Pictures/$(date '+%Y-%m-%d-%T')-s
 
 # Thème clair/sombre de tout le PC (Firefox, kitty, Zed, Zim, apps GTK)
 bindsym F8 exec ~/.local/bin/theme-switch toggle
+
+# Mode silencieux : plus aucune notification (indicateur dans waybar)
+bindsym F11 exec ~/.config/sway/scripts/silent-mode.sh toggle

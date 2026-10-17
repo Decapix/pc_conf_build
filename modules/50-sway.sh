@@ -14,10 +14,12 @@ mod_sway_install() {
 mod_sway_link() {
   link sway   "$HOME/.config/sway"
   link waybar "$HOME/.config/waybar"
+  link mako   "$HOME/.config/mako"
   link wofi   "$HOME/.config/wofi"
   link kitty  "$HOME/.config/kitty"
   link bin/change_wallpaper.sh "$HOME/.local/bin/change_wallpaper.sh"
   link bin/theme-switch.sh     "$HOME/.local/bin/theme-switch"
+  link bin/bt-audio-reset.sh   "$HOME/.local/bin/bt-audio-reset"
   # theme.conf is local state (switched by F8 / switch-theme.sh), not tracked in git.
   if [[ ! -e "$DOT/kitty/theme.conf" ]]; then
     run ln -s "$HOME/.config/kitty/mocha.conf" "$DOT/kitty/theme.conf"

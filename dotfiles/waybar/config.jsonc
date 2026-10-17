@@ -17,6 +17,7 @@
     ],
 
     "modules-right": [
+        "custom/silent",
         "keyboard-state",
         "custom/ping",
         "network",
@@ -47,6 +48,14 @@
             "locked": "",
             "unlocked": ""
         },
+    },
+
+    "custom/silent": {
+        "exec": "~/.config/sway/scripts/silent-mode.sh status",
+        "return-type": "json",
+        "signal": 9,
+        "interval": 10,
+        "on-click": "~/.config/sway/scripts/silent-mode.sh toggle"
     },
 
     "custom/ping": {
