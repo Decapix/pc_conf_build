@@ -89,6 +89,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | touches luminosité | ±5 % (même écran verrouillé) |
 | `Super+s` | capture écran entier → `~/Pictures/DATE-screenshot.png` |
 | `Super+Shift+s` | capture d'une zone |
+| `Super+Shift+Alt+s` | capture d'une zone, copiée aussi sur **fugax** (`~/Pictures`, même nom) ; le chemin (identique sur les deux machines) dans le presse-papier, notification si tout a réussi |
 | `Super+F7` / `Super+F8` | éteindre / rallumer l'écran du portable (eDP-1) |
 | `F8` | **tout le PC** clair ↔ sombre (Firefox, kitty, Zed, Zim, apps GTK) — voir plus bas |
 | `F11` | mode silencieux : plus aucune notification ni son des onglets WhatsApp (le reste de l'audio continue), « 󰂛 silencieux » dans la barre (clic dessus = désactiver) |

@@ -28,6 +28,8 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Screenshot
 bindsym $mod+S exec grimshot save screen ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
 bindsym $mod+Shift+S exec grimshot save area ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
+# Zone → ~/Pictures ici ET sur fugax, chemins des deux machines dans le presse-papier
+bindsym $mod+Shift+Mod1+S exec ~/.config/sway/scripts/screenshot-fugax.sh
 
 
 
