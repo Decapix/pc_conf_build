@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # screenshot-fugax — capture d'une zone (comme Super+Shift+s) dans ~/Pictures, copiée aussi
 # sur fugax (même chemin), puis ce chemin (identique sur les deux machines) dans le presse-papier.
-# Bindé sur Super+Shift+Alt+s. Notification si tout a réussi, critique sinon.
+# Bindé sur Super+Shift+d. Notification si tout a réussi, critique sinon.
 set -euo pipefail
 
 REMOTE=fugax
