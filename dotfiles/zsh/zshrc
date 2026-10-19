@@ -45,7 +45,14 @@ ranger_cd() {
 # export PATH="$HOME/anaconda3/bin:$PATH" # si on la decomment ca utilise le python de conda par defaut
 alias ran='ranger_cd'
 alias suspend='systemctl suspend'
-alias block='swaylock -f -i ~/Pictures/Wallpapers/actual.jpg -s fill -c 0d1640'  # verrouiller l'écran (ex-Super+L)
+# verrouiller l'écran (ex-Super+L) ; block --black : écran noir au lieu du fond d'écran
+block() {
+  if [[ $1 == --black ]]; then
+    swaylock -f -c 000000
+  else
+    swaylock -f -i ~/Pictures/Wallpapers/actual.jpg -s fill -c 0d1640
+  fi
+}
 alias zed='~/.local/bin/zed'
 # export PATH=$HOME/.local/bin:$PATH
 

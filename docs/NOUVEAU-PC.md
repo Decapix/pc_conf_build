@@ -75,7 +75,7 @@ gestes) sont inoffensifs si le matériel n'est pas branché.
 | Test | Attendu |
 |---|---|
 | `Super+C` | centre de contrôle (wofi) |
-| `block` (terminal) | écran verrouillé avec le fond d'écran Bing du jour (`~/Pictures/Wallpapers/actual.jpg`) |
+| `block` (terminal) | écran verrouillé avec le fond d'écran Bing du jour (`~/Pictures/Wallpapers/actual.jpg`) ; `block --black` : écran noir |
 | Barre du haut | workspaces, ping, réseau, tray (icône Wi-Fi), mémoire, batterie, date, heure |
 | `Super+S` | capture dans `~/Pictures` |
 | `Super+F2/F3` | volume − / + |
