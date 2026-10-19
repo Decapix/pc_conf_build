@@ -27,9 +27,12 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Screenshot
 bindsym $mod+S exec grimshot save screen ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
-bindsym $mod+Shift+S exec grimshot save area ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
-# Zone → ~/Pictures ici ET sur fugax, chemin (le même sur les deux) dans le presse-papier
-bindsym $mod+Shift+D exec ~/.config/sway/scripts/screenshot-fugax.sh
+# Zone → ~/Pictures/DATE-zone.png (lien dans ~ pendant 2 min, supprimée au bout de 20 jours)
+bindsym $mod+Shift+S exec ~/.config/sway/scripts/screenshot-area.sh
+# Pareil, copiée aussi sur fugax, chemin (le même sur les deux) dans le presse-papier
+bindsym $mod+Shift+D exec ~/.config/sway/scripts/screenshot-area.sh fugax
+# Ménage des captures de zone de plus de 20 jours (ici et sur fugax)
+exec ~/.config/sway/scripts/screenshot-area.sh clean
 
 
 
