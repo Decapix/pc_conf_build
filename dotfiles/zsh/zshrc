@@ -5,6 +5,7 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="lukerandall"
+DISABLE_AUTO_TITLE="true"   # window title is set below (kitty <repo|program>)
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 plugins=(git aliases)
@@ -62,6 +63,29 @@ export TERM='xterm'
 
 if [[ -n $KITTY_LISTEN_ON ]]; then
     kitty +kitten set_tab_title "$PWD"
+fi
+
+# Window title (sway tabs) in kitty: "kitty <program>" while a command runs,
+# otherwise "kitty <repo>" (closest parent folder holding a .git), otherwise "kitty".
+# Inside tmux it is the pane title (tmux forwards it with set-titles).
+if [[ -n $KITTY_WINDOW_ID || -n $KITTY_PID ]]; then
+    _title_set() {
+        if [[ -n $TMUX ]]; then tmux select-pane -T "$1"
+        else print -rn -- $'\e]2;'"$1"$'\a'; fi
+    }
+    _title_precmd() {
+        local d=$PWD
+        while [[ $d != / && ! -e $d/.git ]]; do d=${d:h}; done
+        if [[ -e $d/.git && $d != / ]]; then _title_set "kitty ${d:t}"; else _title_set kitty; fi
+    }
+    _title_preexec() {
+        local -a w=(${(z)1})
+        while (( $#w > 1 )) && [[ ${w[1]} == (sudo|env|time|nohup|exec|noglob|command|*=*) ]]; do shift w; done
+        _title_set "kitty ${w[1]:t}"
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd _title_precmd
+    add-zsh-hook preexec _title_preexec
 fi
 
 # # add alias

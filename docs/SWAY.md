@@ -17,7 +17,8 @@ sway/
 │   ├── outputs         # eDP-1 / DP-1
 │   ├── inputs          # clavier us,fr ; touchpad
 │   ├── screenlock_powersave   # swayidle + swaylock
-│   └── statusbar       # lance waybar + nm-applet
+│   ├── statusbar       # lance waybar + nm-applet
+│   └── titles          # lance scripts/window-titles.sh (noms courts des onglets)
 ├── custom/             # matériel : daskeyboard4, mxmaster3, sony_wh700, touchpad_gestures
 ├── scripts/            # control-center, battery_alert, rename_group, flatten_workspace, swap_workspaces, sway_bar (ancien)
 ├── images/             # wallpaper.jpg, lockscreen_background.png…
@@ -35,6 +36,7 @@ Ordre d'inclusion : `config.d/*` (alphabétique), puis `custom/*`, puis `/etc/sw
 | alerte batterie (swaynag sous 10 %) | `config` → `scripts/battery_alert.sh` |
 | waybar (relancé à chaque reload) | `config.d/statusbar` |
 | nm-applet `--indicator` (Wi-Fi dans le tray) | `config.d/statusbar` |
+| titres courts des onglets (relancé à chaque reload) | `config.d/titles` → `scripts/window-titles.sh` |
 | swayidle : verrouille à 10 min, éteint l'écran à 15 min, verrouille avant la veille | `config.d/screenlock_powersave` |
 | libinput-gestures | `custom/touchpad_gestures` |
 | capot fermé → écran interne éteint + verrouillage ; ouvert → rallumé | `config.d/screenlock_powersave` |
@@ -169,6 +171,9 @@ Menu wofi (`scripts/control-center.sh`) :
 
 - Bordures 2px, fenêtre active `#0D1A63`, conteneur actif (onglets) `#6ebadd`, urgente `#c03c3c`
 - Titres centrés, police JetBrainsMono Nerd Font 10
+- Titres courts dans les onglets (`scripts/window-titles.sh`, via `title_format`) : `firefox`, `zim`,
+  `zed - <dossier racine>`, kitty = son propre titre (`kitty <dépôt git|programme>`, posé par zsh),
+  autre logiciel = son nom (app_id sans préfixe `org.xxx.`). Le vrai titre reste visible dans waybar.
 - SwayFX : coins arrondis 12px, ombres, fenêtres inactives assombries de 25 %
 - wofi : fond `#282c34`, bordure `#61afef`, coins 8px
 

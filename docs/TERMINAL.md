@@ -60,11 +60,14 @@ nom d'utilisateur sur toute autre machine ; `USER` est déjà défini par le sys
 - barre verte foncée
 - **sélection à la souris = copiée** dans le presse-papier ; double-clic = mot ; triple-clic = ligne
 - `y` en mode copie = copier
+- titre de la fenêtre = titre du panneau (`#T`) ; les programmes ne peuvent pas le changer (`allow-set-title off`)
 
 ## kitty (`dotfiles/kitty/`)
 
 - JetBrainsMono Nerd Font 11.5, opacité 0.95, pas de bip, pas de confirmation à la fermeture
 - `shell tmux` : chaque fenêtre kitty ouvre tmux
+- titre (onglets sway), posé par zsh : `kitty <programme>` pendant une commande (claude, vibe, tmux…),
+  sinon `kitty <dépôt>` (dossier parent le plus proche qui contient un `.git`), sinon `kitty`
 - thèmes : `mocha.conf` (Catppuccin sombre), `light.conf` (Catppuccin Latte)
 - kitty suit **tout seul** le thème du système grâce à `dark-theme.auto.conf` / `light-theme.auto.conf`
   (toutes les fenêtres ouvertes changent, pas besoin de les fermer) : `F8` ou `theme-switch`

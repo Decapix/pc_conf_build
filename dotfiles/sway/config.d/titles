@@ -1,0 +1,3 @@
+# Short names in tabs / title bars (firefox, zim, "zed - <dossier>", "kitty <dépôt|programme>"…).
+# Rules live in the script; kitty's title itself is set by zsh (zshrc).
+exec_always --no-startup-id ~/.config/sway/scripts/window-titles.sh
