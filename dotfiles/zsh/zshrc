@@ -67,10 +67,12 @@ fi
 
 # Window title (sway tabs) in kitty: "kitty <program>" while a command runs,
 # otherwise "kitty <repo>" (closest parent folder holding a .git), otherwise "kitty".
-# Inside tmux it is the pane title (tmux forwards it with set-titles).
+# Inside tmux it is the pane option @title (tmux forwards it with set-titles): not
+# the pane title, which tmux also sets from APC sequences despite allow-set-title off
+# (e.g. the kitty graphics query "Gi=31,s=1,…;AAAA" sent by programs over ssh).
 if [[ -n $KITTY_WINDOW_ID || -n $KITTY_PID ]]; then
     _title_set() {
-        if [[ -n $TMUX ]]; then tmux select-pane -T "$1"
+        if [[ -n $TMUX ]]; then tmux set -p @title "$1"
         else print -rn -- $'\e]2;'"$1"$'\a'; fi
     }
     _title_precmd() {

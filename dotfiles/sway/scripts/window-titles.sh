@@ -13,6 +13,9 @@ fi
 echo $$ >"$pidfile"
 
 # Reads windows as JSON lines {id, app, name} and sets their title_format.
+# title_format itself emits a "title" event: only resend when the label changes,
+# otherwise every window loops forever (sway/waybar at 100% CPU).
+declare -A applied
 apply() {
   local id app name label
   while IFS=$'\t' read -r id app name; do
@@ -25,6 +28,8 @@ apply() {
       *)         label="${app##*.}"; label="${label,,}" ;;
     esac
     label="${label//\\/\\\\}"; label="${label//\"/\\\"}"
+    [[ "${applied[$id]-}" == "$label" ]] && continue
+    applied[$id]=$label
     swaymsg "[con_id=$id] title_format \"$label\"" >/dev/null
   done
 }
