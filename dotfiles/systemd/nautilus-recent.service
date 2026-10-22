@@ -1,0 +1,9 @@
+[Unit]
+Description=Last folders visited in Nautilus as sidebar bookmarks
+
+[Service]
+ExecStart=%h/.local/bin/nautilus-recent
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
