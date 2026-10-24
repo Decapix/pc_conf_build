@@ -1,0 +1,57 @@
+# Presse-papier : pwdc, cdc, readlinkfc, cpr — sourcé par ~/.zshrc (ici et sur les serveurs).
+# En SSH (fugax, julestoulet...), la copie part vers le presse-papier du PC local (saevissima)
+# via la séquence OSC 52 : kitty (et tmux local, set-clipboard on) la reçoit et copie.
+
+# _clipcopy : copie stdin dans le presse-papier
+_clipcopy() {
+  local data tty
+  data="$(cat)"
+  if [[ -z "$SSH_CONNECTION$SSH_TTY" && -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null; then
+    printf '%s' "$data" | wl-copy
+  elif [[ -z "$SSH_CONNECTION$SSH_TTY" && -n "$DISPLAY" ]] && command -v xclip >/dev/null; then
+    printf '%s' "$data" | xclip -selection clipboard
+  else
+    # Dans un tmux (distant), on écrit directement sur le terminal du client tmux :
+    # la séquence passe sans dépendre de set-clipboard/allow-passthrough du tmux distant.
+    tty=/dev/tty
+    [[ -n "$TMUX" ]] && tty="$(tmux display-message -p '#{client_tty}' 2>/dev/null)"
+    [[ -w "$tty" ]] || tty=/dev/tty
+    printf '\e]52;c;%s\a' "$(printf '%s' "$data" | base64 | tr -d '\n')" >"$tty"
+  fi
+}
+
+# pwdc / cdc - quick save and jump to a directory
+function pwdc() {
+  pwd > "$HOME/.pwdc_output"
+  pwd | tr -d '\n' | _clipcopy
+  echo "Saved & copied: $(pwd)"
+}
+
+function cdc() {
+  if [[ -f "$HOME/.pwdc_output" ]]; then
+    cd "$(cat "$HOME/.pwdc_output")" || return
+  else
+    echo "No saved location. Run pwdc first."
+  fi
+}
+
+# readlinkfc <fichier> - copie le chemin absolu d'un fichier dans le presse-papier
+function readlinkfc() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: readlinkfc <fichier>"
+    return 1
+  fi
+  if [[ ! -e "$1" ]]; then
+    echo "readlinkfc: '$1' introuvable"
+    return 1
+  fi
+  local abspath
+  abspath="$(readlink -f "$1")" || return
+  printf '%s' "$abspath" | _clipcopy
+  echo "Copied: $abspath"
+}
+
+# cpr : copie stdin (ou des fichiers) dans le presse-papier — ex: cat xx.txt | cpr
+cpr() {
+  cat "$@" | _clipcopy
+}

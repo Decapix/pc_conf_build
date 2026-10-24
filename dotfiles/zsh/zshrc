@@ -175,44 +175,8 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
-# pwdc / cdc - quick save and jump to a directory
-function pwdc() {
-  pwd > "$HOME/.pwdc_output"
-  if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null; then
-    pwd | tr -d '\n' | wl-copy
-  elif command -v xclip >/dev/null; then
-    pwd | tr -d '\n' | xclip -selection clipboard
-  fi
-  echo "Saved & copied: $(pwd)"
-}
-
-# readlinkfc <fichier> - copie le chemin absolu d'un fichier dans le presse-papier
-function readlinkfc() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: readlinkfc <fichier>"
-    return 1
-  fi
-  if [[ ! -e "$1" ]]; then
-    echo "readlinkfc: '$1' introuvable"
-    return 1
-  fi
-  local abspath
-  abspath="$(readlink -f "$1")" || return
-  if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null; then
-    printf '%s' "$abspath" | wl-copy
-  elif command -v xclip >/dev/null; then
-    printf '%s' "$abspath" | xclip -selection clipboard
-  fi
-  echo "Copied: $abspath"
-}
-
-function cdc() {
-  if [[ -f "$HOME/.pwdc_output" ]]; then
-    cd "$(cat "$HOME/.pwdc_output")" || return
-  else
-    echo "No saved location. Run pwdc first."
-  fi
-}
+# pwdc, cdc, readlinkfc, cpr (copie aussi depuis un SSH vers le PC local)
+source ~/.zsh_clipboard
 
 # --- Suppression par mot (ajouté le 2026-06-22) ---
 # Ctrl+Suppr : supprime le mot à droite
@@ -229,15 +193,6 @@ export VISUAL=vim
 # dl — directory bookmarks with notes (github.com/Decapix/dl-organisation)
 # Must come after every PATH export: the eval calls the dl binary.
 command -v dl >/dev/null && eval "$(dl init zsh)"
-
-# cpr : copie stdin (ou des fichiers) dans le presse-papier — ex: cat xx.txt | cpr
-cpr() {
-  if [[ -n $WAYLAND_DISPLAY ]]; then
-    cat "$@" | wl-copy
-  else
-    cat "$@" | xclip -selection clipboard
-  fi
-}
 
 # Secrets (API keys, tokens): never in this repo.
 # Put them in ~/.secrets.zsh (chmod 600), e.g. export OPENAI_API_KEY=...

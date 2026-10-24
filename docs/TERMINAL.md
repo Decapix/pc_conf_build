@@ -2,7 +2,11 @@
 
 Chaîne : **kitty** → lance **tmux** → **zsh** (oh-my-zsh, thème `lukerandall`, plugins `git`, `aliases`).
 
-## Fonctions perso (`dotfiles/zsh/zshrc`)
+## Fonctions perso (`dotfiles/zsh/zshrc`, `dotfiles/zsh/zsh_clipboard`)
+
+En SSH (fugax, julestoulet…), `pwdc`, `readlinkfc` et `cpr` copient dans le presse-papier **du PC
+local** (OSC 52). Sur un serveur : copier `dotfiles/zsh/zsh_clipboard` en `~/.zsh_clipboard` et
+ajouter `source ~/.zsh_clipboard` à son `~/.zshrc` (déjà fait sur fugax et julestoulet).
 
 | Commande | Effet |
 |---|---|

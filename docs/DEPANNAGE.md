@@ -36,7 +36,7 @@
 | Symptôme | Solution |
 |---|---|
 | `command not found: dl` | `ls ~/go/bin/dl` ; sinon `./install.sh full --only dl` |
-| `pwdc` ne copie pas (VM en SSH) | normal : pas de presse-papier graphique ; `cdc` marche quand même |
+| `pwdc` ne copie pas (en SSH) | il passe par OSC 52 : le terminal local doit l'accepter (kitty oui ; tmux local : `set -s set-clipboard on`) ; vérifier que `~/.zshrc` du serveur fait `source ~/.zsh_clipboard` |
 | `docker: permission denied` | se reconnecter après l'ajout au groupe `docker` (ou `newgrp docker`) |
 | oh-my-zsh a remplacé mon `.zshrc` | ne devrait pas arriver (`KEEP_ZSHRC=yes`) ; `./install.sh link` remet le lien |
 | `gh` demande toujours de se connecter | `gh auth login` puis `gh auth setup-git` |

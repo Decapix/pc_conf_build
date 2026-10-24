@@ -21,6 +21,7 @@ mod_zsh_install() {
 mod_zsh_link() {
   link zsh/zshrc       "$HOME/.zshrc"
   link zsh/zsh_aliases "$HOME/.zsh_aliases"
+  link zsh/zsh_clipboard "$HOME/.zsh_clipboard"
   if [[ ! -f "$HOME/.secrets.zsh" ]]; then
     [[ "$DRY_RUN" == 1 ]] && { run "créer ~/.secrets.zsh"; return 0; }
     install -m 600 /dev/null "$HOME/.secrets.zsh"

@@ -39,9 +39,9 @@ Exemple : `./install.sh vm -y --only node,tailscale` pour les ajouter plus tard.
 
 ## Particularités en VM
 
-- **Presse-papier** : `pwdc`, `readlinkfc`, `cpr` et la copie tmux utilisent `wl-copy`/`xclip`. En SSH
-  sans affichage graphique, la copie vers le presse-papier ne fait rien (pas d'erreur) : `pwdc`/`cdc`
-  marchent quand même (ils passent par `~/.pwdc_output`).
+- **Presse-papier** : en SSH, `pwdc`, `readlinkfc` et `cpr` (`~/.zsh_clipboard`) envoient la copie
+  au **PC d'où on se connecte** par la séquence OSC 52 (kitty la reçoit, même à travers tmux).
+  Hors SSH : `wl-copy`/`xclip`. `cdc` passe par `~/.pwdc_output` (le dossier sauvé sur la VM).
 - **Docker** : se reconnecter (ou `newgrp docker`) pour utiliser docker sans sudo.
 - **Pas de kitty/sway** : rien de graphique n'est proposé en mode vm.
 - **Tailscale** : après le module, `sudo tailscale up` pour rejoindre le tailnet.
