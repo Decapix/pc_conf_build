@@ -76,6 +76,9 @@ if [[ -n $KITTY_WINDOW_ID || -n $KITTY_PID ]]; then
         else print -rn -- $'\e]2;'"$1"$'\a'; fi
     }
     _title_precmd() {
+        # Reset what a dead ssh/tmux/vim leaves behind: mouse tracking (cursor moves typed as
+        # escape sequences), focus events, app cursor keys, hidden cursor, kitty keyboard mode.
+        print -rn -- $'\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1004l\e[?1l\e>\e[?25h\e[<99u\e[>4;0m'
         local d=$PWD
         while [[ $d != / && ! -e $d/.git ]]; do d=${d:h}; done
         if [[ -e $d/.git && $d != / ]]; then _title_set "kitty ${d:t}"; else _title_set kitty; fi

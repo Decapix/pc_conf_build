@@ -21,6 +21,7 @@ mod_sway_link() {
   link bin/change_wallpaper.sh "$HOME/.local/bin/change_wallpaper.sh"
   link bin/theme-switch.sh     "$HOME/.local/bin/theme-switch"
   link bin/bt-audio-reset.sh   "$HOME/.local/bin/bt-audio-reset"
+  link bin/brightness-step.sh  "$HOME/.local/bin/brightness-step"
   # theme.conf is local state (switched by F8 / switch-theme.sh), not tracked in git.
   if [[ ! -e "$DOT/kitty/theme.conf" ]]; then
     run ln -s "$HOME/.config/kitty/mocha.conf" "$DOT/kitty/theme.conf"
