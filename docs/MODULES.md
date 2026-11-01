@@ -20,7 +20,7 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
 
 ## tmux
 - **Fait** : installe tmux + wl-clipboard ; lie `~/.tmux.conf`.
-- Kitty lance tmux automatiquement (`shell tmux` dans kitty.conf).
+- Kitty ne lance plus tmux automatiquement : `tmux new -s nom` pour créer, `tmux attach -t nom` pour rattacher.
 
 ## git-gh
 - **Fait** : dépôt `cli.github.com` (clé `/etc/apt/keyrings/github-cli.gpg`), installe git + gh ;

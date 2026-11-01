@@ -1,6 +1,6 @@
 # Mon terminal
 
-Chaîne : **kitty** → lance **tmux** → **zsh** (oh-my-zsh, thème `lukerandall`, plugins `git`, `aliases`).
+Chaîne : **kitty** → **zsh** (tmux à la demande) (oh-my-zsh, thème `lukerandall`, plugins `git`, `aliases`).
 
 ## Fonctions perso (`dotfiles/zsh/zshrc`, `dotfiles/zsh/zsh_clipboard`)
 
@@ -69,7 +69,8 @@ nom d'utilisateur sur toute autre machine ; `USER` est déjà défini par le sys
 ## kitty (`dotfiles/kitty/`)
 
 - JetBrainsMono Nerd Font 11.5, opacité 0.95, pas de bip, pas de confirmation à la fermeture
-- `shell tmux` : chaque fenêtre kitty ouvre tmux
+- `copy_on_select clipboard` : sélection à la souris = copiée ; double-clic = mot ; triple-clic = ligne
+- pas de `shell tmux` : kitty ouvre zsh directement ; tmux à la demande (`tmux new -s nom`, puis `tmux attach -t nom`)
 - titre (onglets sway), posé par zsh : `kitty <programme>` pendant une commande (claude, vibe, tmux…),
   sinon `kitty <dépôt>` (dossier parent le plus proche qui contient un `.git`), sinon `kitty`
 - thèmes : `mocha.conf` (Catppuccin sombre), `light.conf` (Catppuccin Latte)
