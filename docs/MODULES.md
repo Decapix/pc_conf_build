@@ -31,7 +31,10 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
 ## cli-extra
 - **Fait** : lazygit, dernière release GitHub → `/usr/local/bin/lazygit` ;
   `translate-shell` (Debian) → commande `trans` (ex. `trans :en "tu as bien compris ?"`) ;
-  `ffmpeg` (Debian) → utilisé par la fonction `mic` (micro → MP3 dans le dossier courant).
+  `ffmpeg` (Debian) → utilisé par la fonction `mic` (micro → MP3 dans le dossier courant) ;
+  `mosh` (Debian) → `mosh fugax` au lieu de `ssh fugax` quand le Wi-Fi est mauvais (écho local
+  des frappes, survit aux changements de borne). Il faut aussi `mosh` sur le serveur
+  (`sudo apt install mosh`) ; il passe en UDP 60000-61000, ce que Tailscale laisse passer.
 - Avant, lazygit et k9s venaient du dépôt `deb.griffo.io` ; ce dépôt répond maintenant
   *401 Unauthorized* au téléchargement des paquets : on ne l'utilise plus.
 
