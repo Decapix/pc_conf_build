@@ -7,6 +7,9 @@ Chaîne : **kitty** → **zsh** (tmux à la demande) (oh-my-zsh, thème `lukeran
 En SSH (fugax, julestoulet…), `pwdc`, `readlinkfc` et `cpr` copient dans le presse-papier **du PC
 local** (OSC 52). Sur un serveur : copier `dotfiles/zsh/zsh_clipboard` en `~/.zsh_clipboard` et
 ajouter `source ~/.zsh_clipboard` à son `~/.zshrc` (déjà fait sur fugax et julestoulet).
+Pour que la copie depuis un programme **dans un tmux du serveur** (sélection souris dans Claude
+Code, etc.) arrive aussi au PC local : copier `dotfiles/tmux/tmux-server.conf` en `~/.tmux.conf` sur
+le serveur (`set-clipboard on`, sinon tmux ignore l'OSC 52 ; déjà fait sur fugax).
 
 | Commande | Effet |
 |---|---|
