@@ -32,3 +32,13 @@ mic() {
   ffmpeg -hide_banner -loglevel warning -stats \
     -f pulse -i default -ac 1 -c:a libmp3lame -q:a 2 "$f" && echo "→ $f"
 }
+
+# micall : micro + son de sortie (réunion complète)
+micall() {
+  local f="${1:-reunion-$(date +%Y%m%d-%H%M%S)}.mp3"
+  ffmpeg -hide_banner -loglevel warning -stats \
+    -f pulse -i default \
+    -f pulse -i "$(pactl get-default-sink).monitor" \
+    -filter_complex amix=inputs=2:duration=longest \
+    -ac 1 -c:a libmp3lame -q:a 2 "$f" && echo "→ $f"
+}
