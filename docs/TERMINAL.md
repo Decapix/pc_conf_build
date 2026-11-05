@@ -11,6 +11,11 @@ Pour que la copie depuis un programme **dans un tmux du serveur** (sélection so
 Code, etc.) arrive aussi au PC local : copier `dotfiles/tmux/tmux-server.conf` en `~/.tmux.conf` sur
 le serveur (`set-clipboard on`, sinon tmux ignore l'OSC 52 ; déjà fait sur fugax).
 
+**mosh** : pas de scrollback. Hors tmux, la molette envoie ↑/↓ (historique zsh) au lieu de
+remonter. Il faut passer par tmux : `moshmux fugax [session]` (= `mosh fugax -- tmux new -A -s main`),
+molette et sélection souris gérées par tmux (`mouse on`) ; Shift+glisser = sélection native kitty.
+tmux émet l'OSC 52 sous la forme `52;;` que mosh jette : `tmux-server.conf` la réécrit en `52;c;`.
+
 | Commande | Effet |
 |---|---|
 | `pwdc` | sauve le dossier courant dans `~/.pwdc_output` **et** le copie dans le presse-papier |
@@ -35,6 +40,7 @@ Presse-papier : `wl-copy` sous Wayland, sinon `xclip`.
 | `see-sway-key` | affiche l'aide-mémoire sway |
 | `suspend` | mise en veille |
 | `block` | verrouille l'écran (swaylock, fond Bing du jour) — remplace `Super+L` ; `block --black` : écran noir |
+| `moshmux hôte [session]` | mosh + tmux sur le serveur (scrollback et souris ; attache la session si elle existe) |
 | `mic [nom]` | enregistre le micro en MP3 dans le dossier courant (`q` pour arrêter) ; sans nom → `enregistrement-AAAAMMJJ-HHMMSS.mp3` |
 | `trans` | traduction (translate-shell), ex. `trans :en "bonjour"` |
 | `g++98` | g++ -std=c++98 |

@@ -42,3 +42,10 @@ micall() {
     -filter_complex amix=inputs=2:duration=longest \
     -ac 1 -c:a libmp3lame -q:a 2 "$f" && echo "→ $f"
 }
+
+# moshmux hôte [session] : mosh + tmux côté serveur (attache la session si elle existe).
+# mosh n'a pas de scrollback (la molette envoie ↑/↓ → historique zsh) : seul tmux
+# (« mouse on » dans tmux-server.conf) permet de remonter avec la molette.
+moshmux() {
+  mosh "$1" -- tmux new -A -s "${2:-main}"
+}
