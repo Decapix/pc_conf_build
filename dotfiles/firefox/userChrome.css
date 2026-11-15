@@ -1,0 +1,71 @@
+/* Barre d'onglets sur plusieurs lignes (2 étages par défaut) — testé sur Firefox 140 ESR.
+ *
+ * Tab Mix Plus (github.com/onemen/TabMixPlus) est une extension XUL « legacy » :
+ * elle n'est plus installable depuis Firefox 57. L'équivalent moderne pour les
+ * onglets en plusieurs lignes passe par ce userChrome.css.
+ *
+ * Mécanisme (adapté de MrOtherGuy/firefox-csshacks, chrome/multi-row_tabs.css) :
+ * #tabbrowser-arrowscrollbox et son scrollbox passent en display:contents, donc
+ * les onglets deviennent des items flex de #tabbrowser-tabs, qu'on passe en
+ * flex-wrap: wrap.
+ *
+ * Ne s'applique que si toolkit.legacyUserProfileCustomizations.stylesheets = true
+ * (posé par user.js — voir le module « firefox » de pc_conf_build). */
+
+:root {
+  --multirow-n-rows: 2;            /* nombre max de lignes avant scroll vertical dans la barre */
+  --multirow-tab-min-width: 100px; /* largeur min d'un onglet */
+  --multirow-tab-dynamic-width: 1; /* 1 = les onglets s'étirent pour remplir la ligne, 0 = largeur fixe */
+}
+
+#tabbrowser-tabs[orient="horizontal"] {
+  min-height: unset !important;
+  padding-inline-start: 0 !important;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc((var(--tab-min-height) + 2 * var(--tab-margin-block, var(--tab-block-margin, 0px))) * var(--multirow-n-rows));
+  scrollbar-width: thin;
+}
+
+/* Flèches de scroll horizontal : inutiles quand les onglets wrappe. */
+#scrollbutton-up~spacer,
+#scrollbutton-up,
+#scrollbutton-down {
+  display: none !important;
+}
+
+/* display:contents sur toute la chaîne arrowscrollbox > scrollbox > slot :
+ * les onglets rejoignent alors le conteneur flex #tabbrowser-tabs. */
+#tabbrowser-arrowscrollbox[orient="horizontal"],
+scrollbox[part="scrollbox"][orient="horizontal"],
+scrollbox[part][orient="horizontal"] > slot {
+  display: contents !important;
+}
+
+/* Onglets : largeur min fixe, étirables pour remplir chaque ligne. */
+#tabbrowser-tabs .tabbrowser-tab[fadein]:not([pinned]) {
+  min-width: var(--multirow-tab-min-width) !important;
+  flex-grow: var(--multirow-tab-dynamic-width) !important;
+}
+
+/* Onglets épinglés dans le flux des lignes (pas en position absolute). */
+#tabbrowser-tabs .tabbrowser-tab[pinned] {
+  position: static !important;
+  margin-inline-start: 0 !important;
+}
+
+.tabbrowser-tab > stack {
+  width: 100%;
+  height: 100%;
+}
+
+/* Le bouton « + » ne doit pas ajouter de marge en bas (casserait la hauteur des lignes). */
+#tabs-newtab-button {
+  margin-bottom: 0 !important;
+}
+
+#tabbrowser-arrowscrollbox > spacer,
+.tabbrowser-tab::after {
+  display: none !important;
+}
