@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-register firefox on - "" "Firefox : onglets sur 2 lignes (chrome/userChrome.css multi-lignes lié dans chaque profil)"
+register firefox on - "" "Firefox : onglets sur 2 lignes (userChrome.css lié dans chaque profil) + extension « stop doom scroll » liée dans ~/.mozilla/firefox/"
 
 # Tab Mix Plus (github.com/onemen/TabMixPlus) est une extension XUL « legacy » :
 # Firefox >= 57 ne peut plus l'installer. Sur Firefox moderne, la barre d'onglets
@@ -11,9 +11,13 @@ FIREFOX_LEGACY_CSS_PREF='toolkit.legacyUserProfileCustomizations.stylesheets'
 mod_firefox_install() {
   mod_firefox_link
   info "Redémarre Firefox : les onglets passent sur 2 lignes (--multirow-n-rows dans userChrome.css)."
+  info "Extension « stop doom scroll » : about:debugging → « Ce Firefox » → « Charger un module temporaire »"
+  info "  → ~/.mozilla/firefox/doomscroll-blocker/manifest.json (temporaire, à recharger à chaque"
+  info "  redémarrage ; install permanente = .xpi signé via AMO, voir le README de l'extension)."
 }
 
 mod_firefox_link() {
+  _firefox_link_doomscroll
   local ini="$HOME/.mozilla/firefox/profiles.ini" path profile
   [[ -r "$ini" ]] || { warn "pas de ~/.mozilla/firefox/profiles.ini : rien à faire"; return 0; }
   while IFS= read -r path; do
@@ -27,6 +31,13 @@ mod_firefox_link() {
     link firefox/userChrome.css "$profile/chrome/userChrome.css"
     _firefox_ensure_userjs "$profile"
   done < <(awk -F= '/^Path=/ {print $2}' "$ini")
+}
+
+# Extension « stop doom scroll » : liée hors des profils, à charger à la main
+# via about:debugging (« Charger un module temporaire » → manifest.json).
+_firefox_link_doomscroll() {
+  [[ -d "$HOME/.mozilla/firefox" ]] || { warn "pas de ~/.mozilla/firefox : extension non liée"; return 0; }
+  link firefox/extensions/doomscroll-blocker "$HOME/.mozilla/firefox/doomscroll-blocker"
 }
 
 # user.js : jamais écrasé — pref ajoutée si absente, sinon lien vers celui du dépôt.

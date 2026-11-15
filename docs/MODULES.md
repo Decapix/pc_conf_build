@@ -158,8 +158,17 @@ Pour chaque module : ce qu'il fait, ce qu'il modifie, comment le défaire.
   (lien vers `dotfiles/firefox/user.js` s'il n'existe pas, sinon la pref est ajoutée à la fin
   sans toucher au reste). Résultat : barre d'onglets sur 2 lignes (`--multirow-n-rows: 2`,
   modifiable en haut du CSS). Redémarrer Firefox pour que ça prenne effet.
+- **Fait aussi** : lie `dotfiles/firefox/extensions/doomscroll-blocker/` →
+  `~/.mozilla/firefox/doomscroll-blocker/` : extension MV3 « stop doom scroll » qui met les
+  vidéos en pause et envoie une notification « stop doom scroll !!! » après 1 min passée sur
+  YouTube Shorts, Instagram ou TikTok. À charger dans Firefox : `about:debugging` →
+  « Ce Firefox » → « Charger un module temporaire » →
+  `~/.mozilla/firefox/doomscroll-blocker/manifest.json`. En temporaire elle disparaît à
+  chaque redémarrage ; pour une install permanente sur Firefox release, signer le .xpi via
+  AMO (self-distribution) — voir le `README.md` de l'extension.
 - **Pourquoi pas Tab Mix Plus** (`github.com/onemen/TabMixPlus`) : c'est une extension XUL
   « legacy », installable seulement jusqu'à Firefox 56. Sur Firefox 140, userChrome.css est
   la seule façon d'avoir des onglets multi-lignes.
 - **Défaire** : supprimer `chrome/userChrome.css` et la ligne
-  `toolkit.legacyUserProfileCustomizations.stylesheets` de `user.js` dans chaque profil.
+  `toolkit.legacyUserProfileCustomizations.stylesheets` de `user.js` dans chaque profil,
+  ainsi que le lien `~/.mozilla/firefox/doomscroll-blocker`.

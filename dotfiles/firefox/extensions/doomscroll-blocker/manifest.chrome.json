@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Stop Doom Scroll",
+  "version": "1.0.0",
+  "description": "Met les vidéos en pause automatiquement après 1 minute sur YouTube Shorts, Instagram et TikTok, et affiche une notification « stop doom scroll !!! ».",
+  "permissions": ["notifications"],
+  "host_permissions": [
+    "https://www.youtube.com/shorts/*",
+    "https://youtube.com/shorts/*",
+    "https://m.youtube.com/shorts/*",
+    "https://www.instagram.com/*",
+    "https://instagram.com/*",
+    "https://www.tiktok.com/*",
+    "https://tiktok.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/shorts/*",
+        "https://youtube.com/shorts/*",
+        "https://m.youtube.com/shorts/*",
+        "https://www.instagram.com/*",
+        "https://instagram.com/*",
+        "https://www.tiktok.com/*",
+        "https://tiktok.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
