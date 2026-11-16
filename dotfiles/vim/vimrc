@@ -1,0 +1,15 @@
+" Alt+↑ / Alt+↓ : déplacer la ligne courante (ou la sélection) d'un cran.
+" Dans un terminal, Alt+flèche arrive comme une séquence CSI « 1;3 » :
+" on déclare la touche pour que vim la reconnaisse comme <M-Up>/<M-Down>.
+if !has('gui_running')
+  execute "set <M-Up>=\e[1;3A"
+  execute "set <M-Down>=\e[1;3B"
+endif
+
+nnoremap <silent> <M-Up>   :move .-2<CR>==
+nnoremap <silent> <M-Down> :move .+1<CR>==
+inoremap <silent> <M-Up>   <Esc>:move .-2<CR>==gi
+inoremap <silent> <M-Down> <Esc>:move .+1<CR>==gi
+" En visuel, « : » pré-remplit « '<,'> » : on garde le range pour déplacer toute la sélection.
+vnoremap <silent> <M-Up>   :move '<-2<CR>gv=gv
+vnoremap <silent> <M-Down> :move '>+1<CR>gv=gv
