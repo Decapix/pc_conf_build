@@ -157,9 +157,13 @@ add_user_to_group() {
 }
 
 # install_tar_bin <url of .tar.gz> <binary name inside>: extract one binary into /usr/local/bin.
+# Le binaire peut être à la racine du tar (lazygit) ou dans un sous-dossier (glow).
 install_tar_bin() {
-  local d; d="$(mktemp -d)"
-  run bash -c "curl -fsSL '$1' | tar -xz -C '$d'" && as_root install -m 755 "$d/$2" "/usr/local/bin/$2"
+  local d bin; d="$(mktemp -d)"
+  run bash -c "curl -fsSL '$1' | tar -xz -C '$d'" || { rm -rf "$d"; return 1; }
+  bin="$(find "$d" -type f -name "$2" -perm -u+x | head -n1)"
+  if [[ -z "$bin" ]]; then err "binaire « $2 » introuvable dans $1"; rm -rf "$d"; return 1; fi
+  run as_root install -m 755 "$bin" "/usr/local/bin/$2"
   local rc=$?; rm -rf "$d"; return $rc
 }
 
