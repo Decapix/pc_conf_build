@@ -1,9 +1,11 @@
 " Alt+↑ / Alt+↓ : déplacer la ligne courante (ou la sélection) d'un cran.
-" Dans un terminal, Alt+flèche arrive comme une séquence CSI « 1;3 » :
-" on déclare la touche pour que vim la reconnaisse comme <M-Up>/<M-Down>.
+" Dans un terminal, Alt+flèche arrive comme CSI « 1;3 A/B » (kitty, xterm, tmux…).
+" Déclarer « <xUp>/<xDown> » avec le pattern « [@;*X » (voir :help arrow_modifiers)
+" fait reconnaître la séquence ET son modificateur : « ;3 » = Alt → <M-Up>/<M-Down>.
+" (« set <M-Up>=… » ne marche pas : E518.) « @ » couvre aussi la flèche sans modificateur.
 if !has('gui_running')
-  execute "set <M-Up>=\e[1;3A"
-  execute "set <M-Down>=\e[1;3B"
+  execute "set <xUp>=\e[@;*A"
+  execute "set <xDown>=\e[@;*B"
 endif
 
 nnoremap <silent> <M-Up>   :move .-2<CR>==
