@@ -57,7 +57,15 @@ block() {
 alias zed='~/.local/bin/zed'
 # export PATH=$HOME/.local/bin:$PATH
 
-export TERM='xterm'
+# TERM : on garde celui du terminal (kitty -> xterm-kitty, tmux -> tmux-256color, 256 couleurs).
+# Forcer un TERM 8 couleurs (ex. 'xterm') fait planter ranger :
+# "ValueError: Color number is greater than COLORS-1 (7)".
+# Repli sur xterm-256color seulement si l'entree terminfo du TERM courant n'existe pas
+# (ex. ssh depuis kitty vers une machine sans xterm-kitty) : xterm-256color est dans
+# ncurses-base, donc present partout, et supporte 256 couleurs.
+if ! infocmp "$TERM" >/dev/null 2>&1; then
+    export TERM=xterm-256color
+fi
 
 #PS1='\[\e[0;32m\]\u@\h \[\e[0;34m\]\w\[\e[0m\]\$ '
 

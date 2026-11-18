@@ -61,7 +61,11 @@ Les dossiers qui n'existent pas sont simplement ignorés (sans effet sur une VM)
 
 ## Variables
 
-`EDITOR=vim`, `VISUAL=vim`, `JAVA_HOME`, `ANDROID_HOME`, `TERM=xterm`, `QT_QPA_PLATFORMTHEME=qt5ct`,
+`EDITOR=vim`, `VISUAL=vim`, `JAVA_HOME`, `ANDROID_HOME`, `QT_QPA_PLATFORMTHEME=qt5ct`,
+`TERM` est conservé tel quel (kitty → `xterm-kitty`, tmux → `tmux-256color`) ; repli sur
+`xterm-256color` seulement si l'entrée terminfo du `TERM` courant n'existe pas (ssh depuis kitty).
+Un `TERM` 8 couleurs forcé (ex. `xterm`) fait planter ranger
+(« Color number is greater than COLORS-1 (7) »).
 `MAIL` (en-tête 42). Les **secrets** viennent de `~/.secrets.zsh` (hors repo).
 
 Changement lors de la migration : la ligne `USER=solenopsis` a été retirée (elle forçait un mauvais
